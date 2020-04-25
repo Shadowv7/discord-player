@@ -84,7 +84,13 @@ class Player {
      * @returns {Boolean} Whether the guild is currently playing songs
      */
     isPlaying(guildID) {
-        return this.queues.some((g) => g.guildID === guildID);
+        const song = this.queues.some((g) => g.guildID === guildID);
+        const songInformations = {
+          Song : song,
+          Paused : !song.playing,
+          RepeatModeEnabled : song.repeatMode
+        }
+        return 
     }
 
     /**
